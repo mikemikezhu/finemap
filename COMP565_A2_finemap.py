@@ -9,6 +9,8 @@ import math
 
 from abc import ABC, abstractmethod
 
+# GitHub: https://github.com/mikemikezhu/finemap
+
 """
 Constants
 """
@@ -204,10 +206,6 @@ class PosteriorCalculator(AbstractCalculator):
             configs_df.loc[i, 'marginal'] = pos_bf * pos_prior
             # Configuration is valid
             configs_df.loc[i, 'valid'] = 1.0
-
-            # TODO: Debug
-            # if i == 1000:
-            #     break
 
         # Remove invalid configurations
         configs_df = configs_df[configs_df["valid"] == 1.0]
