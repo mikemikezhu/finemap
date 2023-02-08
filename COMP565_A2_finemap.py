@@ -315,6 +315,13 @@ def main():
     pips = np.asarray(pips)
     print("PIP: ", pips)
 
+    # Output inferred PIPs
+    pips_df = pd.DataFrame(columns=["SNPs", "Inferred PIPs"])
+    pips_df[pips_df.columns[0]] = total_snps
+    pips_df[pips_df.columns[1]] = pips
+    pips_df.to_csv("COMP565 A2 SNP pip.csv.gz", compression=COMPRESSION_GZIP)
+    print(pips_df)
+
     # Plot
     causal_index = np.empty((len(CAUSAL_SNPS)), dtype=int)
     for i, snp in enumerate(CAUSAL_SNPS):
